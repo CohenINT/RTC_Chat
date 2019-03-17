@@ -18,7 +18,27 @@ app.use(express.static("public"));
 //Socket setup
 var io= socket(server);
 io.on("connection",(socket)=>{
-    console.log("made socket connection.".yellow,socket.id);
+    console.log("made socket connection.".yellow);
+
+
+    //getting data from socket from client side
+   socket.on("chat",function(data){
+
+
+    //all sockets sending data from server side
+     io.sockets.emit("chat",data);
+   });
+
+
+
+   socket.on("typing",function(data){
+       
+     socket.broadcast.emit("typing",data);
+   
+   
+   
+    });
+
 });
 
 

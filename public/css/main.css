@@ -3,6 +3,7 @@
 .feedback {
     background-color: steelblue;
     height: 45px;
+    font:white;
 }
 
 #output {
