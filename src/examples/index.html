@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="UTF-8">
+<style>
+
+
+body{
+    width:1200px;
+    height:1000px;
+}
+
+
+.wnd{
+    width:800px;
+    height:400px;
+position: relative;
+margin-left: 50%;
+background-color: antiquewhite;
+font-size: 30px;
+
+
+
+}
+.btn{
+   position: relative;
+   margin-left: 80%;
+   width: 300px;
+   height: 100px;
+   font-size: 40px;
+}
+
+
+.user_message
+{
+    position: relative;
+    background-color:chocolate;
+    font-size:22px;
+    margin-left:46%;
+    width: 900px;
+}
+
+
+</style>
+<script  src="jquery-3.3.1.js"></script>
+
+
+       
+</head>
+<body>
+
+
+
+
+
+<textarea  class="wnd">  
+
+</textarea>
+
+
+
+<textarea id="user_message" class="user_message"></textarea>
+
+<button onclick="send();" id="send" class="btn" value="send" type="button" role="button">
+send
+</button>
+
+
+
+
+
+<script>
+        var HOST = "http://localhost";
+       var PORT = 8080;
+       var wnd = document.getElementsByClassName("wnd")[0];
+       
+       function addLine(txt)
+       {
+           wnd.value+=txt+"\n";
+       }
+       
+       
+       function send()
+       {
+       var usr_msg= document.getElementById("user_message");
+       var txt=usr_msg.value;
+       //send txt to server
+       $.ajax({
+                   url: HOST+":"+PORT,
+                  method:"POST",
+                   data:txt,
+                   
+                   success : function(data) { 
+                      
+                    addLine(data);
+                   },
+                   error : function(jqXHR, textStatus, errorThrown) {
+                    
+                       alert('Error: ' + jqXHR.status);
+                   },                
+               });
+       
+       
+       
+       
+       //server will response with like this  :     127.0.0.1: "txt"
+       
+       
+       
+       }
+       
+       
+       
+       </script>
+</body>
+</html>
