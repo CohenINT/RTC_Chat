@@ -49,7 +49,7 @@ if(data ==""||data==null)
 else{
     name = data;
 }
-console.log(socket);
+
 feedback.innerHTML="<p><em>"+name+" is typing a message...</em></p>";
 
 

@@ -15,19 +15,15 @@ server.listen(port,function(){
     
     console.log("listening to requests on port "+port);
 });
-// var server = app.listen(port,function(){
-// 
-// console.log("listening to requests on port "+port);
-// 
-// });
 
 
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+
+ app.use(function(req, res, next) {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   next();
+ });
 //Static files
 
 app.use(express.static("public"));

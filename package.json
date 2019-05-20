@@ -4,8 +4,7 @@
   "description": "simple tcp server",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "go": "node src/client.js"
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
