@@ -1,13 +1,157 @@
-
-
-.feedback {
-    background-color: steelblue;
-    height: 45px;
-    font:white;
+@font-face {
+	font-family: SFProDisplay-Regular;
+	src: url('../../../../../Downloads/SFProDisplay-Regular.ttf') format('truetype');
+    /*
+        TODO: move the font file into project folder
+    */
 }
 
-#output {
-    background-color: antiquewhite;
-    height: 500px;
+.container {
+    width: 360px;
+    height: 640px;
+    background-color: #fffdf9;
+    z-index:-1;
 }
 
+
+
+
+.icon_settings {
+	width: 18px;
+	height: 18px;
+	object-fit: contain;
+
+
+
+	margin-top:52px;
+	margin-bottom:43px;
+	margin-right:24px;
+	margin-left:318px;
+	position: absolute;
+}
+
+
+
+.red_bg {
+	width: 360px;
+	height: 113px;
+	object-fit: contain;
+
+	position: absolute;
+}
+
+
+
+.user-header {
+	width: 63px;
+	height: 24px;
+	font-family:SFProDisplay-Regular;
+	font-size: 20px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: 0.7px;
+	color: #ffffff;
+	margin-top: 49px;
+	margin-bottom: 567px;
+	margin-right: 148px;
+	margin-left: 149px;
+	position: absolute;
+}
+
+
+
+
+.circle_inbox {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+
+    margin-left:24px;
+    margin-top:45px;
+    margin-right:304px;
+    margin-bottom:563px;
+    position: absolute;
+}
+
+
+
+.inbox-num {
+    width: 10px;
+    height: 19px;
+    font-family: SFProDisplay-Regular;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    color: #f96d6d;
+    margin-left: 35px;
+    margin-top: 52px;
+    margin-right: 315px;
+    margin-bottom: 569px;
+    position: absolute;
+}
+
+
+
+.Rectangle {
+    width: 300px;
+    height: 78px;
+    border-radius: 23px;
+    background-color: #ffe8e8;
+
+    position:absolute;
+    display:block;
+    margin-top:459px;
+    margin-bottom:103px;
+    margin-left:0px;
+
+
+
+}
+
+
+.msg_box {
+    width: 312px;
+    height: 47px;
+    border-radius: 23.5px;
+    border: solid 1px #d6d6d8;
+    background-color: #f4f4f4;
+    margin-top: 569px;
+    margin-bottom: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    position: absolute;
+    border-radius: 45px;
+}
+
+
+
+.icon_attach {
+    width: 20px;
+    height: 23px;
+    object-fit: contain;
+    
+
+    position:absolute;
+    margin-top:581px;
+    margin-bottom:36px;
+    margin-right:39px;
+    margin-left:301px;
+}
+
+.Icon_smiley {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    background-color: #9996a9;
+    position: absolute;
+    margin-top: 582px;
+    margin-right: 303px;
+    margin-left: 37px;
+    margin-bottom: 38px;
+    position: absolute;
+}
