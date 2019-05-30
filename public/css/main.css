@@ -1,11 +1,19 @@
 @font-face {
 	font-family: SFProDisplay-Regular;
-	src: url('../../../../../Downloads/SFProDisplay-Regular.ttf') format('truetype');
-    /*
-        TODO: move the font file into project folder
-    */
+	src: url('../fonts/SFProDisplay-Regular.ttf') format('truetype');
+    
 }
 
+@font-face {
+	font-family: SFProDisplay-Bold;
+	src: url('../fonts/SFProDisplay-Bold.ttf') format('truetype');
+    
+}
+
+body{
+    
+
+}
 .container {
     width: 360px;
     height: 640px;
@@ -115,7 +123,7 @@
 
 
 .msg_box {
-    width: 312px;
+    width: 209px;
     height: 47px;
     border-radius: 23.5px;
     border: solid 1px #d6d6d8;
@@ -126,6 +134,10 @@
     margin-right: 24px;
     position: absolute;
     border-radius: 45px;
+    text-align: left;
+    padding-right: 54px;
+    padding-left: 48px;
+    outline: none;
 }
 
 
@@ -147,11 +159,138 @@
     width: 20px;
     height: 20px;
     object-fit: contain;
-    background-color: #9996a9;
+
     position: absolute;
     margin-top: 582px;
     margin-right: 303px;
     margin-left: 37px;
     margin-bottom: 38px;
     position: absolute;
+}
+
+
+
+.message{
+
+    clear: both;
+    line-height: 18px;
+    font-size: 15px;
+    /* padding: 8px; */
+    position: relative;
+    margin: 8px 0;
+    /* max-width: 85%; */
+    /* word-wrap: break-word; */
+
+}
+
+.recived{
+    direction: ltr;
+    background-color: #fff2d8;
+    border-bottom-left-radius: 14px;
+    border-top-left-radius: 14px;
+    float: right;
+    padding-right: 61px;
+    max-width: 245px;
+
+
+}
+
+.conversation
+{
+    display: flow-root;
+    position: absolute;
+    height: 454px;
+    width: inherit;
+    margin-left: 0px;
+    margin-right: 300px;
+    box-sizing: border-box;
+    margin-top: 114px;
+    /* background: url(https://i.ibb.co/3s1f9Jq/default-wallpaper.png) repeat; */
+
+}
+
+
+
+.msg_time_incoming{
+    direction: ltr;
+    width: 38px;
+    height: 14px;
+    font-family: SFProDisplay-Regular;
+    font-size: 10.5px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #9094ac;
+    margin-left: 24px;
+    margin-top: 20px;
+    position: absolute;
+    padding-right: 117px;
+}
+
+
+.msg_time_outgoing{
+    direction: ltr;
+    /* width: 231px; */
+    height: 14px;
+    font-family: SFProDisplay-Regular;
+    font-size: 10.5px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #9094ac;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: absolute;
+    /* padding-left: 117px; */
+}
+
+.msg_text_incoming{
+    font-family: SFProDisplay-Bold;
+    /* width: 245px; */
+    /* height: 16px; */
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: #76798e;
+    margin-left: 24px;
+    margin-top: 36px;
+    overflow-wrap: break-word;
+}
+
+.msg_text_outgoing{
+    font-family: SFProDisplay-Bold;
+    /* width: 245px; */
+    /* height: 16px; */
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: #76798e;
+    /* clear: both; */
+    margin-left: 21px;
+    margin-top: 36px;
+    overflow-wrap: break-word;
+}
+
+
+.outgoing{
+ 
+    background-color: #ffe8e8;
+    border-bottom-right-radius: 14px;
+    border-top-right-radius: 14px;
+    float: left;
+    padding-right: 61px;
+    max-width: 245px;
+}
+.input{
+    
 }

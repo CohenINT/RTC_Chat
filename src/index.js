@@ -47,8 +47,8 @@ io.on("connection",(socket)=>{
 
 
    socket.on("typing",function(data){
-       console.log(data+" is  typing now".green);
-     socket.broadcast.emit("typing",data);
+    //    console.log(data+" is  typing now".green);
+    //  socket.broadcast.emit("typing",data);
    
    
    
