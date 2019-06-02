@@ -198,6 +198,7 @@ body{
 .conversation
 {
     display: flow-root;
+    overflow-y: auto;
     position: absolute;
     height: 454px;
     width: inherit;

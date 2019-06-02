@@ -14,7 +14,8 @@ let user_ip;
  var messsage = document.getElementById("message");
 //handle = document.getElementById("handle"), 
 // btn = document.getElementById("send"),
-output = document.getElementById("output"),
+container = document.getElementById("output"),
+//output = document.getElementById("output"),
 feedback = document.getElementById("feedback");
 
 //Emit Events
@@ -34,6 +35,9 @@ document.getElementsByTagName("html")[0].addEventListener("keypress",function(e)
         // handle:user_ip
     });
 
+
+
+    message.value = "";
 });
 
 messsage.addEventListener("keypress",function(){
@@ -52,7 +56,7 @@ socket.on("chat",function(data){
 //moshe outcoming messages
 let new_message = '<div class="message outgoing"> <p class="msg_time_outgoing">   21:38   </p> <p class="msg_text_outgoing">'+ data.message+"</p></div>";
 
-output.innerHTML +=new_message;
+container.innerHTML +=new_message;
 });
 
 
