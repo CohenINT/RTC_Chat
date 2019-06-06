@@ -10,11 +10,15 @@ let user_ip;
       });
 
 //Query DOM
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('user');
 
  var messsage = document.getElementById("message");
 //handle = document.getElementById("handle"), 
 // btn = document.getElementById("send"),
 container = document.getElementById("output"),
+current_user=myParam,
+contact_user="",
 //output = document.getElementById("output"),
 feedback = document.getElementById("feedback");
 
@@ -28,11 +32,17 @@ document.getElementsByTagName("html")[0].addEventListener("keypress",function(e)
         return;
     }
     
+//moshe outcoming messages
+let today= new Date();
+let time = today.getHours()+":"+today.getMinutes();
+
+let new_message = '<div class="message outgoing"> <p class="msg_time_outgoing">  '+time+'  </p> <p class="msg_text_outgoing">'+ message.value+"</p></div>";
+container.innerHTML +=new_message;
     //sending the socket with data
     socket.emit("chat",{
-     
+        user:current_user,
         message:messsage.value,
-        // handle:user_ip
+      
     });
 
 
@@ -48,13 +58,19 @@ messsage.addEventListener("keypress",function(){
 
 socket.on("chat",function(data){
 //printing sent message on the conversation window
-
+if(current_user ==data.user)
+{//no need to redisplay the current user message
+    return;
+}
+document.getElementById("contact_header").innerText=data.user;
 
 //berta incoming messages
-//let new_message =  '<div class="message recived"> <p class="msg_time">   21:38   </p> <p class="msg_text">'+ data.message+"</p></div>";
+let today= new Date();
+let time = today.getHours()+":"+today.getMinutes();
+let new_message =  '<div class="message recived"> <p class="msg_time_incoming">  '+time+'  </p> <p class="msg_text_incoming">'+ data.message+"</p></div>";
 
 //moshe outcoming messages
-let new_message = '<div class="message outgoing"> <p class="msg_time_outgoing">   21:38   </p> <p class="msg_text_outgoing">'+ data.message+"</p></div>";
+//let new_message = '<div class="message outgoing"> <p class="msg_time_outgoing">   21:38   </p> <p class="msg_text_outgoing">'+ data.message+"</p></div>";
 
 container.innerHTML +=new_message;
 });

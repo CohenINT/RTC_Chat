@@ -1,10 +1,11 @@
 var express = require("express");
 var http = require('http');
 var app = express();
+var route = express.Router();
 var  server = require('http').createServer(app);
 var socket_t = require("socket.io");
 var colors= require("colors");
-
+var users=new Array();
 
 //App setup
 //
@@ -24,11 +25,34 @@ server.listen(port,function(){
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
    next();
  });
+
+
+ route.get("/",function(req,res,next){
+ console.log(req.query.user);
+//TODO: push the username into the users objects (this would be used by the main window to watch all connected users)
+let temp_usr= {user:req.query.user,pass:""};
+if(users.indexOf(temp_usr)===-1)
+{//not exist
+  users.push(temp_usr);
+  delete temp_usr;
+  next();
+}
+
+else{
+  console.log("user picked an exist username.");
+  res.end("please pick other username"); 
+  return;
+}
+
+
+ });
+
+
+ app.use("/",route);
+
 //Static files
 
 app.use(express.static("public"));
-
-
 //Socket setup
 var io= socket_t(server);
 io.origins('*:*');
