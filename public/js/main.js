@@ -2,7 +2,7 @@
 
 //Make connection 
 var port=4000;
-var host="http://localhost:";
+var host="http://www.moshe-cohen.biz:";
 var socket= io.connect(host+port);
 let user_ip;
     $.getJSON('http://ip-api.com/json?callback=?', function(data) {
@@ -42,6 +42,7 @@ container.innerHTML +=new_message;
     socket.emit("chat",{
         user:current_user,
         message:messsage.value,
+        user_IP:user_ip
       
     });
 
@@ -66,7 +67,12 @@ document.getElementById("contact_header").innerText=data.user;
 
 //berta incoming messages
 let today= new Date();
-let time = today.getHours()+":"+today.getMinutes();
+let minuts = today.getMinutes();
+if(minuts<10)
+{
+    minuts="0"+minuts;
+}
+let time = today.getHours()+":"+minuts;
 let new_message =  '<div class="message recived"> <p class="msg_time_incoming">  '+time+'  </p> <p class="msg_text_incoming">'+ data.message+"</p></div>";
 
 //moshe outcoming messages

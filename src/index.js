@@ -63,7 +63,9 @@ io.on("connection",(socket)=>{
     //getting data from socket from client side
    socket.on("chat",function(data){
 
-   console.log("getting data from socket client".yellow);
+   console.log("getting data from socket client = "+data.user_IP+" ".yellow);
+   console.log("message: "+data.message);
+   console.log("----------------------------------------------------");
     //all sockets sending data from server side
      io.sockets.emit("chat",data);
    });
