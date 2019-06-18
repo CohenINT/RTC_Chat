@@ -26,28 +26,38 @@ server.listen(port,function(){
  });
 
 
+
+
 route.get("/home", function (req, res, next)
 {
- console.log(req.query.user);
+
 //TODO: push the username into the users objects (this would be used by the main window to watch all connected users)
     let temp_usr = { user: req.query.user, pass: "" };
-    console.log(users.indexOf(temp_usr));
+    console.log(JSON.stringify(users).indexOf(temp_usr) === -1);
 
-if(users.indexOf(temp_usr)===-1)
-{//not exist
-  users.push(temp_usr);
-    console.log(users);
+ if (JSON.stringify(users).indexOf(temp_usr.user)===-1)
+ {//not exist
+     console.log("not exist code block");
+     console.log(temp_usr.user);
+     console.log(users);
+
+    users.push(temp_usr);
  
 }
 
 else{
-  console.log("user picked an exist username.");
-    res.end("please pick other username"); 
-    
-  return;
+    //exist
+    console.log("user picked an exist username.");
+    console.log(temp_usr.user);
+    console.log(users);
+    res.redirect("http://"+req.hostname+":"+port);
+     return;
+ 
     }
 
-    let temp_url_redirect = req.headers.referer + "home.html?user=" + temp_usr.user;
+    let temp_url_redirect = "http://" + req.hostname + ":" + port + "/" + "home.html?user=" + temp_usr.user;
+     temp_usr=null;
+    console.log(temp_url_redirect);
     res.redirect(temp_url_redirect);
     next();
 
