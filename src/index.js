@@ -19,14 +19,32 @@ server.listen(port,function(){
 
 
 
- app.use(function(req, res, next) {
+app.use(function (req, res, next) {
+
+    
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   next();
+    next();
+
+     
  });
 
 
+//route.get("/", function (req, res, next) {
 
+//    if ("error" in req.query) {
+//        let alert = "<script>" + "alert(" + req.query.error + ");" +
+//            "document.location.href=" + "http://" + req.hostname + ":" + port
+//            + "</script>";
+//        res.end(alert);
+
+//    }
+//    else {
+
+//        res.redirect("http://" + req.hostname + ":" + port);
+//    }
+
+//});
 
 route.get("/home", function (req, res, next)
 {
