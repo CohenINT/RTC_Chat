@@ -6,7 +6,7 @@ var  server = require('http').createServer(app);
 var socket_t = require("socket.io");
 var colors= require("colors");
 var users=new Array();
-
+const path = require("path");
 //App setup
 //
 
@@ -19,7 +19,6 @@ server.listen(port,function(){
 
 
 
-
  app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -27,23 +26,30 @@ server.listen(port,function(){
  });
 
 
- route.get("/",function(req,res,next){
+route.get("/home", function (req, res, next)
+{
  console.log(req.query.user);
 //TODO: push the username into the users objects (this would be used by the main window to watch all connected users)
-let temp_usr= {user:req.query.user,pass:""};
+    let temp_usr = { user: req.query.user, pass: "" };
+    console.log(users.indexOf(temp_usr));
+
 if(users.indexOf(temp_usr)===-1)
 {//not exist
   users.push(temp_usr);
-  delete temp_usr;
-  next();
+    console.log(users);
+ 
 }
 
 else{
   console.log("user picked an exist username.");
-  res.end("please pick other username"); 
+    res.end("please pick other username"); 
+    
   return;
-}
+    }
 
+    let temp_url_redirect = req.headers.referer + "home.html?user=" + temp_usr.user;
+    res.redirect(temp_url_redirect);
+    next();
 
  });
 

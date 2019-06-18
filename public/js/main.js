@@ -2,8 +2,10 @@
 
 //Make connection 
 var port=4000;
-var host="http://www.moshe-cohen.biz:";
-var socket= io.connect(host+port);
+//var host="http://www.moshe-cohen.biz:";
+var host = "http://localhost:";
+
+var socket = io.connect(host + port);
 let user_ip;
     $.getJSON('http://ip-api.com/json?callback=?', function(data) {
         user_ip=  data.query;

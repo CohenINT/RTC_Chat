@@ -1,1 +1,1 @@
-start /d "\\src\" src.exe
+npm start
