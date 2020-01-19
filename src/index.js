@@ -68,12 +68,13 @@ else{
     console.log("user picked an exist username.");
     console.log(temp_usr.user);
     console.log(users);
-    res.redirect("http://"+req.hostname+":"+port);
+    res.redirect("http://moshe-cohen.biz/apps/RTC_Chat/public/");
      return;
  
     }
 
     let temp_url_redirect = "http://" + req.hostname + ":" + port + "/" + "home.html?user=" + temp_usr.user;
+    console.log(temp_url_redirect);
      temp_usr=null;
     console.log(temp_url_redirect);
     res.redirect(temp_url_redirect);

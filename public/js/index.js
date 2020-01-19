@@ -1,4 +1,4 @@
-﻿
+﻿const port=4000;
 
 $(document).ready(init);
 function init() {
@@ -10,7 +10,7 @@ function init() {
         }
 
         //refereing to home page
-        document.location.href = document.location.origin + "/home?user=" + document.getElementById("user_nick").value;
+        document.location.href = document.location.origin+":"+port + "/home?user=" + document.getElementById("user_nick").value;
 
 
 
